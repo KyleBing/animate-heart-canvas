@@ -21,6 +21,8 @@ class AnimateHeartCanvas {
             height: 300,
         }
         this.configHeart = {
+            timeLine: 0,                    // 时间线
+
             gravity: 4,                     // 加速度
             timeInit: new Date().getTime(),
             movement: 1,                    // 运动速度
@@ -28,13 +30,13 @@ class AnimateHeartCanvas {
             y: 50,                          // 位置 y
             width: 200,                     // heart 大小
             height: 200,                    // heart 大小
-            countHeart: 100,                 // heart 数量
+            countHeart: 120,                 // heart 数量
 
-            sizeMin: 20,                    // 最小值
+            sizeMin: 50,                    // 最小值
             sizeMax: 200,                   // 最大值
                                             // 颜色
             minH: 0,                        // 色值最小
-            maxH: 10,                       // 色值最大
+            maxH: 15,                       // 色值最大
             minOpacity: 0.2,                // 透明度最小 %
             maxOpacity: 0.8,                // 透明度最大 %
 
@@ -91,8 +93,8 @@ class AnimateHeartCanvas {
 
 
     init(){
-        this.configFrame.width = innerWidth
-        this.configFrame.height = innerHeight
+        this.configFrame.height = innerHeight * 2
+        this.configFrame.width = innerWidth * 2
 
         let heartLayer = document.createElement("canvas")
         this.updateFrameAttribute(heartLayer)
@@ -109,12 +111,12 @@ class AnimateHeartCanvas {
                 id: i,
                 opacity: 0,
                 opacityFinal: randomInt(0, 100), // 最终透明度
-                timeInit: new Date().getTime() - randomInt(100, 1000),
+                timeInit: new Date().getTime() - randomInt(100, 10000), // 随机排布初始 heart 的位置
                 x, // 位置 x
                 y, // 位置 y
                 originalX: x,
                 originalY: y,
-                width: randomSize, // heart 大小
+                width: randomSize,  // heart 大小
                 height: randomSize, // heart 大小
                 colorH: randomInt(this.configHeart.minH, this.configHeart.maxH)
             })
