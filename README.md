@@ -6,33 +6,33 @@
 ## 使用说明
 
 ### 1. 浏览器
-使用 `animate-bg-canvas-browser.js` 这个文件
+使用 `animate-heart-canvas-browser.js` 这个文件
 ```js
 // 新建对象时，会自动呈现动画效果
-let animateCanvas = new AnimatedCanvasBG()
+let animateHeartCanvas = new AnimateHeartCanvas()
 
 // 其它操作
-animateCanvas.play()  // 方块动起来
-animateCanvas.stop()  // 方块不动
+animateHeartCanvas.play()  // 方块动起来
+animateHeartCanvas.stop()  // 方块不动
 
 ```
 
 ### 2. Vue
 
 ```bash
-npm i animate-bg-canvas
+npm i animate-heart-canvas
 ```
 
 ```js
-import {AnimatedCanvasBG} from "animate-heart-canvas"
+import {AnimateHeartCanvas} from "animate-heart-canvas"
 
 export default {
     mounted() {
         this.height = innerHeight
-        this.animatedBg = new AnimatedCanvasBG()
+        this.animateHeartCanvas = new AnimateHeartCanvas()
     },
     beforeDestroy() {
-        this.animatedBg.destroy()
+        this.animateHeartCanvas.destroy()
     }
 }
 ```

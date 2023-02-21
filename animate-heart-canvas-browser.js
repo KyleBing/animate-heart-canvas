@@ -23,24 +23,37 @@ class AnimateHeartCanvas {
         this.configHeart = {
             timeLine: 0,                    // 时间线
 
-            gravity: 4,                     // 加速度
             timeInit: new Date().getTime(),
-            movement: 1,                    // 运动速度
-            x: 50,                          // 位置 x
-            y: 50,                          // 位置 y
-            width: 200,                     // heart 大小
-            height: 200,                    // heart 大小
-            countHeart: 120,                 // heart 数量
+            movement: 1,        // 运动速度
 
-            sizeMin: 50,                    // 最小值
-            sizeMax: 200,                   // 最大值
-                                            // 颜色
-            minH: 0,                        // 色值最小
-            maxH: 15,                       // 色值最大
-            minOpacity: 0.2,                // 透明度最小 %
-            maxOpacity: 0.8,                // 透明度最大 %
+            x: 50,              // 位置 x
+            y: 50,              // 位置 y
+            width: 200,         // heart 大小
+            height: 200,        // heart 大小
+            countHeart: 150,    // heart 数量
 
-            opacityGrowth: 10,              // 透明度增长值
+            // 大小
+            sizeMin: 50,        // 最小值
+            sizeMax: 350,       // 最大值
+
+            // 颜色
+            colorSaturate: 100, // 颜色饱和度 0-100
+            colorLight: 60,     // 颜色亮度 0-100
+            minH: 330,          // 色值最小
+            maxH: 340,          // 色值最大
+            minOpacity: 20,     // 透明度最小 %
+            maxOpacity: 100,    // 透明度最大 %
+            opacityGrowth: 5,   // 透明度增长值
+
+            // 出现的位置范围
+            heartRangeMin: 0,   // 心出现的位置，从下面算起，取值 0.0-1.0
+            heartRangeMax: 0.3,
+
+            // 加速度
+            gravityMin: 1,      // 加速度 min
+            gravityMax: 9.8     // 加速度 max
+
+
         }
 
         this.heartBuffer = [] // 心缓存
@@ -100,18 +113,19 @@ class AnimateHeartCanvas {
         this.updateFrameAttribute(heartLayer)
         document.documentElement.append(heartLayer)
 
-        this.configHeart.timeInit =  new Date().getTime()
+        this.configHeart.timeLine =  0
 
         // 填充缓存形状
         for (let i = 0; i < this.configHeart.countHeart; i++) {
             let randomSize = randomInt(this.configHeart.sizeMin, this.configHeart.sizeMax)
             let x = randomInt(0, this.configFrame.width)
-            let y = randomInt(this.configFrame.height * 0.5, this.configFrame.height)
+            let y = randomInt(this.configFrame.height * (1-this.configHeart.heartRangeMax), this.configFrame.height * (1-this.configHeart.heartRangeMin))
             this.heartBuffer.push({
                 id: i,
+                gravity: randomFloat(this.configHeart.gravityMin, this.configHeart.gravityMax),
                 opacity: 0,
-                opacityFinal: randomInt(0, 100), // 最终透明度
-                timeInit: new Date().getTime() - randomInt(100, 10000), // 随机排布初始 heart 的位置
+                opacityFinal: randomInt(this.configHeart.minOpacity, this.configHeart.maxOpacity), // 最终透明度
+                timeInit: randomInt(1, 500), // 随机排布初始 heart 的位置
                 x, // 位置 x
                 y, // 位置 y
                 originalX: x,
@@ -121,8 +135,6 @@ class AnimateHeartCanvas {
                 colorH: randomInt(this.configHeart.minH, this.configHeart.maxH)
             })
         }
-
-        console.log(this.heartBuffer)
 
         this.draw()
 
@@ -141,6 +153,9 @@ class AnimateHeartCanvas {
 
 
     draw() {
+        // 建立自己的时间参考线，消除使用系统时间时导致的切换程序后时间紊乱的情况
+        this.configHeart.timeLine = this.configHeart.timeLine + 1
+
         // create heart
         let canvasHeart = document.getElementById('heartLayer')
         let contextHeart = canvasHeart.getContext('2d')
@@ -150,11 +165,18 @@ class AnimateHeartCanvas {
             // 当出了画面时
             if (heart.y < -(heart.height)){
                 heart.y = heart.originalY
-                heart.timeInit = new Date().getTime()
+                heart.timeInit = this.configHeart.timeLine // 重新定位时间节点
                 heart.opacity = 0
             }
 
             // 当透明度到达最终透明度时
+            let timeGap = this.configHeart.timeLine - heart.timeInit // 时间为正数时才计算透明度
+            if (timeGap > 0){
+                heart.opacity = heart.opacity * ((this.configHeart.timeLine - heart.timeInit)/100)
+            } else { // 没到该 heart 的展示时间时，透明度为 0，不显示
+                heart.opacity = 0
+            }
+
             if (heart.opacity >= heart.opacityFinal){
                 heart.opacity = heart.opacityFinal // 定位到最终的透明度
             }
@@ -163,17 +185,18 @@ class AnimateHeartCanvas {
             // let movement = 1/2 * this.configHeart.gravity * Math.pow((new Date().getTime() - heart.timeInit)/1000,2)
 
             // speed = 1/2 gt
-            let movement = 1/2 * this.configHeart.gravity * (new Date().getTime() - heart.timeInit)/1000
+            let movement = 1/2 * heart.gravity * (this.configHeart.timeLine - heart.timeInit) / 300
             heart.y = heart.y - movement
 
-            heart.opacity = heart.opacity + this.configHeart.opacityGrowth
             this.drawHeart(
                 heart.x,
                 heart.y,
                 heart.width / 2,
                 heart.height / 2,
-                `hsl(${heart.colorH} 100% 50% / ${heart.opacity * ((new Date().getTime() - heart.timeInit)/1000)}%)`
+                `hsl(${heart.colorH} ${this.configHeart.colorSaturate}% ${this.configHeart.colorLight}% / ${heart.opacity}%)`
             )
+            heart.opacity = heart.opacity + this.configHeart.opacityGrowth
+
         })
 
         if (this.isPlaying) {
