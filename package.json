@@ -1,0 +1,28 @@
+{
+  "name": "animate-canvas-heart",
+  "version": "0.1.0",
+  "description": "animated heart canvas, red heart",
+  "main": "animate-heart-canvas.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KyleBing/animate-heart-canvas.git"
+  },
+  "keywords": [
+    "canvas",
+    "animate",
+    "heart",
+    "js"
+  ],
+  "author": "KyleBing",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/KyleBing/animate-heart-canvas/issues"
+  },
+  "homepage": "https://github.com/KyleBing/animate-heart-canvas#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
