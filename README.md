@@ -3,7 +3,8 @@
 一个好多心形上浮的 canvas 动画背景。
 可以根据自己需要修改默认的行为，源码中标注的很清楚了。
 
-> 演示地址： [https://kylebing.cn/test/animate-heart-canvas/](https://kylebing.cn/test/animate-heart-canvas/)
+> 演示地址： [https://kylebing.cn/test/animate-heart-canvas/](https://kylebing.cn/test/animate-heart-canvas/)  
+> 演示 - 五颜六色: [https://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360](https://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360)
 
 
 
@@ -19,6 +20,7 @@
  * @param sizeMax 心形最大值
  */
 let animateHeartCanvas = new AnimateHeartCanvas(hMin, hMax, countHeart, sizeMin, sizeMax)
+// hMin hMax 对应 hue 的颜色值
 // 什么参数都不写就是红色
 
 let 五颜六色 = new AnimateHeartCanvas(0, 360)  // 这个就是五颜六色的
