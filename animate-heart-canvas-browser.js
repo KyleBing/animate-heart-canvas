@@ -46,8 +46,8 @@ class AnimateHeartCanvas {
             // 颜色
             colorSaturate: 100,            // 颜色饱和度 0-100
             colorLight: 60,                // 颜色亮度 0-100
-            hMin: hMin || 0,             // 色值最小
-            hMax: hMax || 360,             // 色值最大
+            hMin: hMin || 330,             // 色值最小
+            hMax: hMax || 350,             // 色值最大
             minOpacity: 20,                // 透明度最小 %
             maxOpacity: 100,               // 透明度最大 %
             opacityGrowth: 5,              // 透明度增长值
