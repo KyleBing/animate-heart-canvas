@@ -1,5 +1,7 @@
 # animate-heart-canvas
 
+![2023-02-22 11 51 22](https://user-images.githubusercontent.com/12215982/220519714-8a13833e-b025-45b6-9015-2b9d99618576.png)
+
 一个好多心形上浮的 canvas 动画背景。
 可以根据自己需要修改默认的行为，源码中标注的很清楚了。
 
