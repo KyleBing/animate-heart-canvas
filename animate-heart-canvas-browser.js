@@ -16,8 +16,9 @@ class AnimateHeartCanvas {
      * @param countHeart 心的数量
      * @param sizeMin 心形最小值
      * @param sizeMax 心形最大值
+     * @param bgColor 背景颜色
      */
-    constructor(hMin, hMax, countHeart = 150, sizeMin = 50, sizeMax = 350) {
+    constructor(hMin, hMax, countHeart = 150, sizeMin = 50, sizeMax = 350, bgColor) {
         this.isPlaying = true // 默认自动播放
 
         this.mouseX = 0
@@ -26,6 +27,7 @@ class AnimateHeartCanvas {
         this.configFrame = {
             width : 1200,
             height: 300,
+            bgColor: bgColor
         }
         this.configHeart = {
             timeLine: 0,                    // 时间线
@@ -174,6 +176,15 @@ class AnimateHeartCanvas {
         let canvasHeart = document.getElementById('heartLayer')
         let contextHeart = canvasHeart.getContext('2d')
         contextHeart.clearRect(0, 0, this.configFrame.width, this.configFrame.height)
+
+
+        // 背景，没有 bgColor 的时候，背景就是透明的
+        console.log(this.configFrame.bgColor)
+        if (this.configFrame.bgColor){
+            contextHeart.fillStyle = this.configFrame.bgColor
+            contextHeart.fillRect(0,0,this.configFrame.width, this.configFrame.height)
+        }
+
 
         this.heartBuffer.forEach(heart => {
             // 当出了画面时

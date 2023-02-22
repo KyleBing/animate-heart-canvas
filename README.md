@@ -7,8 +7,10 @@
 
 > 演示地址： [https://kylebing.cn/test/animate-heart-canvas/](https://kylebing.cn/test/animate-heart-canvas/)  
 > 演示 - 五颜六色: [https://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360](https://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360)  
-> 演示 - 小的: [https://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360&countHeart=500&sizeMin=10&sizeMax=50](https://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360&countHeart=500&sizeMin=10&sizeMax=50)
+> 演示 - 小的: [https://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360&countHeart=500&sizeMin=10&sizeMax=50&bgColor=%233d3d3d](https://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360&countHeart=500&sizeMin=10&sizeMax=50&bgColor=%233d3d3d)
 
+
+也可以直接通过演示地址的参数进行演示，注意，颜色值如果是 `#333333` 这种，注意对特殊字符进行域名地址转义, `encodeURIComponent`
 
 
 ## API
@@ -21,8 +23,9 @@
  * @param countHeart 心的数量
  * @param sizeMin 心形最小值
  * @param sizeMax 心形最大值
+ * @param bgColor 背景颜色
  */
-let animateHeartCanvas = new AnimateHeartCanvas(hMin, hMax, countHeart, sizeMin, sizeMax)
+let animateHeartCanvas = new AnimateHeartCanvas(hMin, hMax, countHeart, sizeMin, sizeMax, bgColor)
 // hMin hMax 对应 hue 的颜色值
 // 什么参数都不写就是红色
 
