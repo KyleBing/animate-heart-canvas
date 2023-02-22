@@ -7,6 +7,7 @@
 
 > 演示地址： [https://kylebing.cn/test/animate-heart-canvas/](https://kylebing.cn/test/animate-heart-canvas/)  
 > 演示 - 五颜六色: [https://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360](https://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360)
+> 演示 - 小的: [?hMin=0&hMax=360&countHeart=500&sizeMin=10&sizeMax=50](?hMin=0&hMax=360&countHeart=500&sizeMin=10&sizeMax=50)
 
 
 

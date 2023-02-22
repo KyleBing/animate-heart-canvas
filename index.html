@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Canvas Heart</title>
-    <script src="animate-heart-canvas-browser.js?v=20230222120036"></script>
+    <script src="animate-heart-canvas-browser.js?v=20230222133814"></script>
     <script>
-        let animateHeartCanvas = new AnimateHeartCanvas(Number(getSearchData().hMin), (Number(getSearchData().hMax)))
+        let queryData = getSearchData()
+        console.log(queryData)
+        let animateHeartCanvas = new AnimateHeartCanvas(
+            Number(queryData.hMin),
+            Number(queryData.hMax),
+            Number(queryData.countHeart),
+            Number(queryData.sizeMin),
+            Number(queryData.sizeMax),
+        )
 
         /****************************
          *
