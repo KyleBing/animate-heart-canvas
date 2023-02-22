@@ -179,7 +179,6 @@ class AnimateHeartCanvas {
 
 
         // 背景，没有 bgColor 的时候，背景就是透明的
-        console.log(this.configFrame.bgColor)
         if (this.configFrame.bgColor){
             contextHeart.fillStyle = this.configFrame.bgColor
             contextHeart.fillRect(0,0,this.configFrame.width, this.configFrame.height)
