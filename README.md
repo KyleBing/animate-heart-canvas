@@ -19,8 +19,9 @@
  * @param sizeMax 心形最大值
  */
 let animateHeartCanvas = new AnimateHeartCanvas(hMin, hMax, countHeart, sizeMin, sizeMax)
-
 // 什么参数都不写就是红色
+
+let 五颜六色 = new AnimateHeartCanvas(0, 360)  // 这个就是五颜六色的
 
 // 其它操作
 animateHeartCanvas.play()        // 心动起来
