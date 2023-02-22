@@ -1,6 +1,6 @@
 {
   "name": "animate-canvas-heart",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "animated heart canvas, red heart",
   "main": "animate-heart-canvas.js",
   "scripts": {
