@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/KyleBing/animate-heart-canvas#readme",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   }
 }
