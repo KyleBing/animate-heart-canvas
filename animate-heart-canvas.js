@@ -1,11 +1,11 @@
 /**
  * 心动
- * Animated Canvas Heart
+ * Animated Heart Canvas
  * @author: KyleBing(kylebing@163.com)
- * @github: https://github.com/KyleBing/animate-canvas-heart
+ * @github: https://github.com/KyleBing/animate-heart-canvas
  * @date-init: 2023-02-21
- * @date-update: 2023-02-22
- * @version: v0.1.0
+ * @date-update: 2023-02-23
+ * @version: v0.1.9
  * @platform: NPM
  */
 
@@ -30,40 +30,38 @@ class AnimateHeartCanvas {
             bgColor: bgColor
         }
         this.configHeart = {
-            timeLine: 0,                    // 时间线
+            timeLine: 0,                           // 时间线
 
             timeInit: new Date().getTime(),
-            movement: 1,                   // 运动速度
+            movement: 1,                           // 运动速度
 
-            x: 50,                         // 位置 x
-            y: 50,                         // 位置 y
-            width: 200,                    // heart 大小
-            height: 200,                   // heart 大小
-            countHeart: countHeart || 150, // heart 数量
-
-            // 大小
-            sizeMin: sizeMin || 50,        // 最小值
-            sizeMax: sizeMax || 350,       // 最大值
+            x: 50,                                 // 位置 x
+            y: 50,                                 // 位置 y
+            width: 200,                            // heart 大小
+            height: 200,                           // heart 大小
+            countHeart: countHeart || 150,         // heart 数量
+                                                   // 大小
+            sizeMin: isNaN(sizeMin) ?50: sizeMin,  // 最小值
+            sizeMax: isNaN(sizeMax) ?350: sizeMax, // 最大值
 
             // 颜色
-            colorSaturate: 100,            // 颜色饱和度 0-100
-            colorLight: 60,                // 颜色亮度 0-100
-            hMin: isNaN(hMin) ?330: hMin,  // 色值最小
-            hMax: isNaN(hMax) ?350: hMax,  // 色值最大
-            minOpacity: 20,                // 透明度最小 %
-            maxOpacity: 100,               // 透明度最大 %
-            opacityGrowth: 5,              // 透明度增长值
+            colorSaturate: 100,                    // 颜色饱和度 0-100
+            colorLight: 60,                        // 颜色亮度 0-100
+            hMin: isNaN(hMin) ?330: hMin,          // 色值最小
+            hMax: isNaN(hMax) ?350: hMax,          // 色值最大
+            minOpacity: 20,                        // 透明度最小 %
+            maxOpacity: 100,                       // 透明度最大 %
+            opacityGrowth: 5,                      // 透明度增长值
 
             // 出现的位置范围
-            heartRangeMin: 0,              // 心出现的位置，从下面算起，取值 0.0-1.0
+            heartRangeMin: 0,                      // 心出现的位置，从下面算起，取值 0.0-1.0
             heartRangeMax: 0.3,
 
             // 加速度
-            gravityMin: 1,                 // 加速度 min
-            gravityMax: 9.8,               // 加速度 max
+            gravityMin: 1,                         // 加速度 min
+            gravityMax: 9.8,                       // 加速度 max
 
-            flowDirection: 1,              // 运动方向 1 向上 -1 向下
-
+            flowDirection: 1,                      // 运动方向 1 向上 -1 向下
 
         }
 
