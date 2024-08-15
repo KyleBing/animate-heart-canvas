@@ -5,9 +5,9 @@
 一个好多心形上浮的 canvas 动画背景。
 可以根据自己需要修改默认的行为，源码中标注的很清楚了。
 
-> 演示地址： [https://kylebing.cn/test/animate-heart-canvas/](https://kylebing.cn/test/animate-heart-canvas/)  
-> 演示 - 五颜六色: [https://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360](https://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360)  
-> 演示 - 小的: [https://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360&countHeart=500&sizeMin=10&sizeMax=50&bgColor=%233d3d3d](https://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360&countHeart=500&sizeMin=10&sizeMax=50&bgColor=%233d3d3d)
+> 演示地址： [http://kylebing.cn/test/animate-heart-canvas/](http://kylebing.cn/test/animate-heart-canvas/)  
+> 演示 - 五颜六色: [http://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360](http://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360)  
+> 演示 - 小的: [http://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360&countHeart=500&sizeMin=10&sizeMax=50&bgColor=%233d3d3d](http://kylebing.cn/test/animate-heart-canvas/?hMin=0&hMax=360&countHeart=500&sizeMin=10&sizeMax=50&bgColor=%233d3d3d)
 
 
 也可以直接通过演示地址的参数进行演示，注意，颜色值如果是 `#333333` 这种，注意对特殊字符进行域名地址转义, `encodeURIComponent`
